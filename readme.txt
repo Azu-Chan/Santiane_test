@@ -9,3 +9,7 @@ Santiane_test
 - MySQL 8
 - Composer
 
+vrac----------------
+creer db
+php artisan migrate
+php artisan db:seed

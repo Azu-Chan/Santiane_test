@@ -39,6 +39,7 @@
                     <td>
                       <a data-toggle="collapse" href="#collapse{{$trip['id']}}" role="button" aria-expanded="false" aria-controls="collapse1">{{$trip['name']}}</a>
                       <div class="collapse" id="collapse{{$trip['id']}}">
+                        <h5>Etapes</h5>
                         <div class="table-responsive">
                         <table class="table table-striped table-sm">
                           <thead>

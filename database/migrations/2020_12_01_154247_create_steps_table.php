@@ -28,6 +28,8 @@ class CreateStepsTable extends Migration
             $table->timestamps();
 
             $table->foreign('trip_id')->references('id')->on('trip');
+            $table->unique(['trip_id', 'departure']);
+            $table->unique(['trip_id', 'arrival']);
         });
     }
 

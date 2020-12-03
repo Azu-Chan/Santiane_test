@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class WelcomeController extends Controller
 {
     /**
-     * Show the profile for the given user.
+     * Show the dashboard with the trips and steps in the database
      *
      * @param  int  $id
      * @return \Illuminate\View\View

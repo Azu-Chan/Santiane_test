@@ -1,3 +1,2 @@
 gestion des erreurs,
 faire readme,
-commentaires,

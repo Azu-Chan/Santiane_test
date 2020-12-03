@@ -12,9 +12,8 @@ use Illuminate\Http\Request;
 class TripController extends Controller
 {
     /**
-     * Show the profile for the given user.
+     * Show the form to add a new trip.
      *
-     * @param  int  $id
      * @return \Illuminate\View\View
      */
     public function show()
@@ -22,11 +21,19 @@ class TripController extends Controller
         return view('add');
     }
 
+    /**
+     * Store the trip and its steps given by the front POST form.
+     *
+     * @param Request $request
+     * @return \Illuminate\View\View
+     */
     public function store (Request $request)
     {
+        /* field validation */
         $validation = $request->validate([
             'trip_name' => 'required|max:30',
         ]);
+        /* trip creation */
         $trip = new Trip;
         $trip->name = $request->trip_name;
 
@@ -35,9 +42,11 @@ class TripController extends Controller
 
         $dynMember = 'type'.$i;
         
+        /* loop in order to create all steps are belonged to the trip */
         while(isset($request->$dynMember)){
             $step = new Step;
 
+            /* field validation */
             $request->validate([
                 'type'.$i => 'required|in:plane,bus,train',
                 'transport_number'.$i => 'required|max:10',
@@ -76,6 +85,7 @@ class TripController extends Controller
             $dynMember = 'type'.$i;
         }
 
+        /* saving in database */
         $trip->save();
 
         foreach($steps as $step){

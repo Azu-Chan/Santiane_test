@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Step;
-use App\Models\Trip;
 
 use Illuminate\Support\Facades\DB;
 

@@ -15,13 +15,13 @@
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Tableau de bord</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">+ Ajouter un Voyage</a>
+          <a class="nav-link" href="/add">+ Ajouter un Voyage</a>
         </li>
       </ul>
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <main role="main" class="col-md-9 col-lg-12 pt-3 px-4">
+        <main role="main" class="col-md-12 col-lg-12 pt-3 px-4">
           <h2>Voyages enregistrés</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">

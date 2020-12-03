@@ -16,7 +16,7 @@ class WelcomeController extends Controller
      */
     public function show()
     {
-        $trips = json_decode(DB::table('trips')->orderBy('name', 'asc')->get(), true);
+        $trips = json_decode(DB::table('trips')->orderBy('id', 'asc')->get(), true);
 
         foreach ($trips as &$trip) 
         {

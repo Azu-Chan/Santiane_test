@@ -13,3 +13,7 @@ vrac----------------
 creer db
 php artisan migrate
 php artisan db:seed
+
+
+
+php vendor/phpunit/phpunit/phpunit

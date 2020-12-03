@@ -1,0 +1,5 @@
+protection champs client/serveur,
+gestion des erreurs,
+faire readme,
+tests,
+commentaires,

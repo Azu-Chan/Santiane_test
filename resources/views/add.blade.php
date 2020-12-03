@@ -20,7 +20,7 @@
       </ul>
     </nav>
     <div class="container-fluid">
-      <h2>Création d'un voyage</h2>
+      <h2>Création d'un voyage (si un champ est mal rempli, le message de confirmation de création ne s'affichera pas)</h2>
       <div class="row">
         <main role="main" class="col-md-12 col-lg-12 pt-3 px-4">
           <form id="form" action="{{ url('add') }}" method="POST">
@@ -28,7 +28,7 @@
             <div class="form-group row">
               <label class="col-4 col-form-label" for="text">Nom du voyage</label> 
               <div class="col-8">
-                <input id="trip_name" name="trip_name" type="text" required="required" class="form-control">
+                <input id="trip_name" name="trip_name" type="text" required="required" class="form-control" maxlength="30">
               </div>
             </div> 
             <div id="steps-group">
@@ -50,49 +50,49 @@
                   <div class="form-group row">
                     <label for="transport_number1" class="col-4 col-form-label">Numéro de transport</label> 
                     <div class="col-8">
-                      <input id="transport_number1" name="transport_number1" type="text" required="required" class="form-control">
+                      <input id="transport_number1" name="transport_number1" type="text" required="required" class="form-control" maxlength="10">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="departure_date1" class="col-4 col-form-label">Date de départ</label> 
                     <div class="col-8">
-                      <input id="departure_date1" name="departure_date1" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm">
+                      <input id="departure_date1" name="departure_date1" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm" maxlength="16" minlength="16">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="departure1" class="col-4 col-form-label">Lieu de départ</label> 
                     <div class="col-8">
-                      <input id="departure1" name="departure1" type="text" class="form-control">
+                      <input id="departure1" name="departure1" type="text" class="form-control" maxlength="30">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrival_date1" class="col-4 col-form-label">Date d'arrivée</label> 
                     <div class="col-8">
-                      <input id="arrival_date1" name="arrival_date1" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm">
+                      <input id="arrival_date1" name="arrival_date1" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm" maxlength="16" minlength="16">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrival1" class="col-4 col-form-label">Lieu d'arrivée</label> 
                     <div class="col-8">
-                      <input id="arrival1" name="arrival1" type="text" class="form-control">
+                      <input id="arrival1" name="arrival1" type="text" class="form-control" maxlength="30">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="seat1" class="col-4 col-form-label">Siège</label> 
                     <div class="col-8">
-                      <input id="seat1" name="seat1" type="text" class="form-control">
+                      <input id="seat1" name="seat1" type="text" class="form-control" maxlength="5">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="gate1" class="col-4 col-form-label">Porte</label> 
                     <div class="col-8">
-                      <input id="gate1" name="gate1" type="text" class="form-control">
+                      <input id="gate1" name="gate1" type="text" class="form-control" maxlength="5">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="baggage_drop1" class="col-4 col-form-label">Enregistrement baggages</label> 
                     <div class="col-8">
-                      <input id="baggage_drop1" name="baggage_drop1" type="text" class="form-control">
+                      <input id="baggage_drop1" name="baggage_drop1" type="text" class="form-control" maxlength="5">
                     </div>
                   </div> 
                 </div>
@@ -123,7 +123,7 @@
 
             groupOfSteps = $("#steps-group");
 
-            groupOfSteps.append('<div id="card'+idStep+'" class="card"><div class="card-header">Etape '+idStep+' <a id="remove'+idStep+'" name="remove'+idStep+'" class="btn btn-danger">x Supprimer l\'étape (Vous ne pouvez supprimer que la dernière étape ajoutée)</a></div><div class="card-body"><div class="form-group row"><label for="type'+idStep+'" class="col-4 col-form-label">Type de transport</label> <div class="col-8"><select id="type'+idStep+'" name="type'+idStep+'" required="required" class="custom-select"><option value="plane">Avion</option><option value="bus">Bus</option><option value="train">Train</option></select></div></div><div class="form-group row"><label for="transport_number'+idStep+'" class="col-4 col-form-label">Numéro de transport</label> <div class="col-8"><input id="transport_number'+idStep+'" name="transport_number'+idStep+'" type="text" required="required" class="form-control"></div></div><div class="form-group row"><label for="departure_date'+idStep+'" class="col-4 col-form-label">Date de départ</label> <div class="col-8"><input id="departure_date'+idStep+'" name="departure_date'+idStep+'" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm"></div></div><div class="form-group row"><label for="departure'+idStep+'" class="col-4 col-form-label">Lieu de départ</label> <div class="col-8"><input id="departure'+idStep+'" name="departure'+idStep+'" type="text" class="form-control"></div></div><div class="form-group row"><label for="arrival_date'+idStep+'" class="col-4 col-form-label">Date d\'arrivée</label> <div class="col-8"><input id="arrival_date'+idStep+'" name="arrival_date'+idStep+'" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm"></div></div><div class="form-group row"><label for="arrival'+idStep+'" class="col-4 col-form-label">Lieu d\'arrivée</label> <div class="col-8"><input id="arrival'+idStep+'" name="arrival'+idStep+'" type="text" class="form-control"></div></div><div class="form-group row"><label for="seat'+idStep+'" class="col-4 col-form-label">Siège</label><div class="col-8"><input id="seat'+idStep+'" name="seat'+idStep+'" type="text" class="form-control"></div></div><div class="form-group row"><label for="gate'+idStep+'" class="col-4 col-form-label">Porte</label> <div class="col-8"><input id="gate'+idStep+'" name="gate'+idStep+'" type="text" class="form-control"></div></div><div class="form-group row"><label for="baggage_drop'+idStep+'" class="col-4 col-form-label">Enregistrement baggages</label> <div class="col-8"><input id="baggage_drop'+idStep+'" name="baggage_drop'+idStep+'" type="text" class="form-control"></div></div> </div></div>');
+            groupOfSteps.append('<div id="card'+idStep+'" class="card"><div class="card-header">Etape '+idStep+' <a id="remove'+idStep+'" name="remove'+idStep+'" class="btn btn-danger">x Supprimer l\'étape (Vous ne pouvez supprimer que la dernière étape ajoutée)</a></div><div class="card-body"><div class="form-group row"><label for="type'+idStep+'" class="col-4 col-form-label">Type de transport</label> <div class="col-8"><select id="type'+idStep+'" name="type'+idStep+'" required="required" class="custom-select"><option value="plane">Avion</option><option value="bus">Bus</option><option value="train">Train</option></select></div></div><div class="form-group row"><label for="transport_number'+idStep+'" class="col-4 col-form-label">Numéro de transport</label> <div class="col-8"><input id="transport_number'+idStep+'" name="transport_number'+idStep+'" type="text" required="required" class="form-control" maxlength="10"></div></div><div class="form-group row"><label for="departure_date'+idStep+'" class="col-4 col-form-label">Date de départ</label> <div class="col-8"><input id="departure_date'+idStep+'" name="departure_date'+idStep+'" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm" maxlength="16" minlength="16"></div></div><div class="form-group row"><label for="departure'+idStep+'" class="col-4 col-form-label">Lieu de départ</label> <div class="col-8"><input id="departure'+idStep+'" name="departure'+idStep+'" type="text" class="form-control" maxlength="30"></div></div><div class="form-group row"><label for="arrival_date'+idStep+'" class="col-4 col-form-label">Date d\'arrivée</label> <div class="col-8"><input id="arrival_date'+idStep+'" name="arrival_date'+idStep+'" type="text" class="form-control" placeholder="jj/mm/aaaa hh:mm" maxlength="16" minlength="16"></div></div><div class="form-group row"><label for="arrival'+idStep+'" class="col-4 col-form-label">Lieu d\'arrivée</label> <div class="col-8"><input id="arrival'+idStep+'" name="arrival'+idStep+'" type="text" class="form-control" maxlength="30"></div></div><div class="form-group row"><label for="seat'+idStep+'" class="col-4 col-form-label">Siège</label><div class="col-8"><input id="seat'+idStep+'" name="seat'+idStep+'" type="text" class="form-control" maxlength="5"></div></div><div class="form-group row"><label for="gate'+idStep+'" class="col-4 col-form-label">Porte</label> <div class="col-8"><input id="gate'+idStep+'" name="gate'+idStep+'" type="text" class="form-control" maxlength="5"></div></div><div class="form-group row"><label for="baggage_drop'+idStep+'" class="col-4 col-form-label">Enregistrement baggages</label> <div class="col-8"><input id="baggage_drop'+idStep+'" name="baggage_drop'+idStep+'" type="text" class="form-control" maxlength="5"></div></div> </div></div>');
 
             idStep++;
         });

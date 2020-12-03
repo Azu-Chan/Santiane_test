@@ -24,6 +24,9 @@ class TripController extends Controller
 
     public function store (Request $request)
     {
+        $validation = $request->validate([
+            'trip_name' => 'required|max:30',
+        ]);
         $trip = new Trip;
         $trip->name = $request->trip_name;
 
@@ -35,6 +38,17 @@ class TripController extends Controller
         while(isset($request->$dynMember)){
             $step = new Step;
 
+            $request->validate([
+                'type'.$i => 'required|in:plane,bus,train',
+                'transport_number'.$i => 'required|max:10',
+                'departure_date'.$i => 'max:16',
+                'departure'.$i => 'max:30',
+                'arrival_date'.$i => 'max:16',
+                'arrival'.$i => 'max:30',
+                'seat'.$i => 'max:5',
+                'gate'.$i => 'max:5',
+                'baggage_drop'.$i => 'max:5',
+            ]);
             $step->type = $request->$dynMember;
             $dynMember = 'transport_number'.$i;
             $step->transport_number = $request->$dynMember;

@@ -69,6 +69,6 @@ class TripController extends Controller
             $step->save();
         }
 
-        return $request;
+        return '<h2>Voyagé crée avec succès</h2><br><a href="/">Retour à l\'accueil</a>';
     }
 }
